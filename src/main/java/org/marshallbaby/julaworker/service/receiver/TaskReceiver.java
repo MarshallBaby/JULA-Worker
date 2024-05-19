@@ -39,8 +39,7 @@ public class TaskReceiver implements ApplicationContextAware {
 
             if (julaThreadPoolExecutor.getActiveCount() >= capacity) {
                 log.debug("Worker is busy. Waiting...");
-            }
-            {
+            } else {
                 fetchAndPushTask();
             }
 

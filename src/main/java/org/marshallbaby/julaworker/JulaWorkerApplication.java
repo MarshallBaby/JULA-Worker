@@ -1,6 +1,6 @@
 package org.marshallbaby.julaworker;
 
-import org.marshallbaby.julaworker.service.TaskReceiver;
+import org.marshallbaby.julaworker.service.receiver.TaskReceiver;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

@@ -8,4 +8,6 @@ public interface JulaConnectorClient {
 
     Optional<Task> getWaitingTask();
 
+    void updateTask(Task task);
+
 }

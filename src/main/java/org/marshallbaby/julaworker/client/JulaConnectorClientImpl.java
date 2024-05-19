@@ -32,4 +32,10 @@ public class JulaConnectorClientImpl implements JulaConnectorClient {
             throw hsce;
         }
     }
+
+    @Override
+    public void updateTask(Task task) {
+
+        julaConnectorRestTemplate.put(TASK_URL, task);
+    }
 }

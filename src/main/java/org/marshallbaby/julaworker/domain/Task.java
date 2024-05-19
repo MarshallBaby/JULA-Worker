@@ -15,5 +15,6 @@ public class Task {
 
     private UUID taskId;
     private String requestPayload;
+    private String responsePayload;
 
 }

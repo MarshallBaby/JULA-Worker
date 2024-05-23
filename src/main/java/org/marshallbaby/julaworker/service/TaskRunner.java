@@ -5,16 +5,15 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.marshallbaby.julaworker.client.JulaConnectorClient;
 import org.marshallbaby.julaworker.domain.Task;
-import org.marshallbaby.julaworker.service.ai.AiEngineService;
 
 import java.util.Objects;
 
 @Slf4j
 @RequiredArgsConstructor
-public class TaskRunnable implements Runnable {
+public class TaskRunner implements Runnable {
 
     private final JulaConnectorClient julaConnectorClient;
-    private final AiEngineService aiEngineService;
+    private final ChatService chatService;
 
     @Setter
     private Task task = null;
@@ -25,7 +24,7 @@ public class TaskRunnable implements Runnable {
         validateTaskIsNotNull();
         log.info("Running task: [{}].", task.getTaskId());
 
-        aiEngineService.executeTask(task);
+        chatService.executeTask(task);
         task.setRequestPayload(null);
         julaConnectorClient.updateTask(task);
         log.info("Task complete: [{}].", task.getTaskId());

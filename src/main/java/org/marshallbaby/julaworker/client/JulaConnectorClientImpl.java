@@ -25,7 +25,6 @@ public class JulaConnectorClientImpl implements JulaConnectorClient {
         } catch (HttpStatusCodeException hsce) {
 
             if (hsce.getStatusCode() == HttpStatus.NOT_FOUND) {
-
                 return Optional.empty();
             }
 

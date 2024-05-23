@@ -1,8 +1,8 @@
 package org.marshallbaby.julaworker.config;
 
 import org.marshallbaby.julaworker.client.JulaConnectorClient;
-import org.marshallbaby.julaworker.service.TaskRunnable;
-import org.marshallbaby.julaworker.service.ai.AiEngineService;
+import org.marshallbaby.julaworker.service.ChatService;
+import org.marshallbaby.julaworker.service.TaskRunner;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,12 +13,12 @@ public class TaskRunnableConfig {
 
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-    public TaskRunnable taskRunnable(
+    public TaskRunner taskRunnable(
             JulaConnectorClient julaConnectorClient,
-            AiEngineService aiEngineService
+            ChatService chatService
     ) {
 
-        return new TaskRunnable(julaConnectorClient, aiEngineService);
+        return new TaskRunner(julaConnectorClient, chatService);
     }
 
 }
